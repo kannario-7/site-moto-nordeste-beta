@@ -1,0 +1,917 @@
+/* ============================================================
+   ARQUIVO: estilo.css
+   SITE: Moto Nordeste BA – Distribuidora de Peças
+   ============================================================
+
+   COMO USAR:
+   Este arquivo controla TODA a aparência visual do site.
+   O arquivo index.html faz referência a ele com a linha:
+       <link rel="stylesheet" href="estilo.css">
+
+   DICA: Use o atalho Ctrl+F (ou Cmd+F no Mac) para encontrar
+   rapidamente a seção que deseja editar.
+   ============================================================ */
+
+
+/* ────────────────────────────────────────────────────────────
+   1. VARIÁVEIS GLOBAIS DE COR E FONTE
+   ────────────────────────────────────────────────────────────
+   Aqui ficam definidas as cores e fontes usadas em todo o site.
+   Se quiser mudar a cor principal (verde), basta alterar
+   o valor de --green aqui e o site inteiro muda.
+
+   CORES PRINCIPAIS:
+   --green        → Verde principal (ex: #7ED321)
+   --green-bright → Verde mais claro, usado em hover
+   --green-dark   → Verde escuro
+   --green-light  → Verde bem transparente (fundo sutil)
+   --black        → Preto puro
+   --gray-950     → Fundo da página (quase preto)
+   --gray-900     → Fundo de cards e seções
+   --gray-400     → Texto cinza (descrições e subtítulos)
+   --white        → Branco
+
+   FONTES:
+   --font-display → Rajdhani (títulos, botões, destaques)
+   --font-body    → Inter (textos corridos)
+
+   BORDAS ARREDONDADAS:
+   --radius-sm → Pequeno (botões)
+   --radius-md → Médio (cards menores)
+   --radius-lg → Grande (cards maiores)
+   ──────────────────────────────────────────────────────────── */
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --green: #7ED321;
+      --green-bright: #A8E63D;
+      --green-dark: #4E8A0A;
+      --green-dim: #3B6B08;
+      --green-glow: rgba(126,211,33,0.18);
+      --green-light: rgba(126,211,33,0.10);
+      --black: #000000;
+      --gray-950: #080808;
+      --gray-900: #111111;
+      --gray-850: #171717;
+      --gray-800: #1E1E1E;
+      --gray-700: #2A2A2A;
+      --gray-600: #3C3C3C;
+      --gray-400: #888888;
+      --gray-200: #CCCCCC;
+      --white: #FFFFFF;
+      --font-display: 'Rajdhani', sans-serif;
+      --font-body: 'Inter', sans-serif;
+      --radius-sm: 4px;
+      --radius-md: 8px;
+      --radius-lg: 14px;
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font-body);
+      background: var(--gray-950);
+      color: var(--gray-200);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    .skip-link {
+      position: absolute; top: -999px; left: 1rem;
+      background: var(--green); color: var(--black);
+      padding: 0.5rem 1rem; border-radius: 0 0 var(--radius-md) var(--radius-md);
+      font-size: 14px; z-index: 9999;
+    }
+    .skip-link:focus { top: 0; }
+
+    /* ────────────────────────────────────────────────────────────
+   2. BARRA SUPERIOR (TOPBAR)
+   ────────────────────────────────────────────────────────────
+   Faixa preta no topo com telefone e localização.
+   Para mudar a cor de fundo: altere "background" em .topbar
+   Para mudar o tamanho do texto: altere "font-size" em .topbar
+   ──────────────────────────────────────────────────────────── */
+/* ── TOPBAR ── */
+    .topbar {
+      background: var(--black);
+      border-bottom: 1px solid rgba(126,211,33,0.2);
+      font-size: 12px;
+      padding: 7px 0;
+    }
+    .topbar-inner {
+      max-width: 1200px; margin: 0 auto; padding: 0 1.5rem;
+      display: flex; justify-content: space-between; align-items: center;
+      flex-wrap: wrap; gap: 6px;
+    }
+    .topbar a, .topbar span { color: var(--gray-400); text-decoration: none; }
+    .topbar a:hover { color: var(--green); }
+    .topbar-right { display: flex; gap: 16px; }
+
+    /* ────────────────────────────────────────────────────────────
+   3. CABEÇALHO / MENU DE NAVEGAÇÃO (HEADER)
+   ────────────────────────────────────────────────────────────
+   Barra preta fixa com logo, menu e botão de orçamento.
+   .header-inner → layout em grid de 3 colunas: logo | menu | botão
+   .logo-img     → tamanho da logo (width/height)
+   .logo-name    → nome da empresa ao lado da logo
+   .header-cta   → botão verde "Orçamento"
+   nav a         → links do menu
+   ──────────────────────────────────────────────────────────── */
+/* ── HEADER ── */
+    header {
+      background: var(--gray-900);
+      border-bottom: 2px solid var(--green);
+      position: sticky; top: 0; z-index: 100;
+      box-shadow: 0 2px 24px rgba(126,211,33,0.15);
+    }
+    .header-inner {
+      max-width: 1200px; margin: 0 auto;
+      padding: 0 1.5rem;
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      align-items: center;
+      gap: 2rem;
+      height: 72px;
+    }
+    .logo {
+      display: flex; align-items: center; gap: 12px;
+      text-decoration: none;
+    }
+    .logo-img {
+      width: 48px; height: 48px;
+      object-fit: contain;
+      border-radius: 10px;
+    }
+    .logo-text {
+      display: flex; flex-direction: column; line-height: 1;
+    }
+    .logo-name {
+      font-family: var(--font-display);
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--white);
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+    .logo-name span { color: var(--green); }
+    .logo-sub {
+      font-size: 10px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--gray-400);
+      margin-top: 2px;
+    }
+
+    nav { align-items: center; gap: 2px; }
+    nav a {
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 14px;
+      letter-spacing: 1px;
+      color: var(--gray-400);
+      text-decoration: none;
+      padding: 8px 14px;
+      border-radius: var(--radius-sm);
+      transition: color 0.15s, background 0.15s;
+      text-transform: uppercase;
+    }
+    nav a:hover { color: var(--green); background: var(--green-light); }
+
+    .header-cta {
+      background: var(--green);
+      color: var(--black);
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 13px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      border: none;
+      padding: 10px 22px;
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      text-decoration: none;
+      white-space: nowrap;
+      transition: background 0.15s, box-shadow 0.15s;
+    }
+    .header-cta:hover {
+      background: var(--green-bright);
+      box-shadow: 0 0 16px rgba(126,211,33,0.5);
+    }
+
+    /* ────────────────────────────────────────────────────────────
+   4. SEÇÃO PRINCIPAL / BANNER (HERO)
+   ────────────────────────────────────────────────────────────
+   Grande banner de entrada com título, texto e botões.
+   .hero-bg-grid  → grade de fundo com linhas verdes sutis
+   .hero-bg-glow  → brilho verde no fundo
+   .hero h1       → título principal (tamanho muda com clamp())
+   .hero-stats    → 4 cards de estatística (direita)
+   .stat-card     → cada card de número (ex: +15K, 48h)
+   .btn-primary   → botão verde "Ver catálogo"
+   .btn-outline   → botão transparente "Falar com consultor"
+   ──────────────────────────────────────────────────────────── */
+/* ── HERO ── */
+    .hero {
+      background: var(--black);
+      min-height: 520px;
+      display: grid; place-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-bg-grid {
+      position: absolute; inset: 0;
+      background-image:
+        linear-gradient(rgba(126,211,33,0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(126,211,33,0.05) 1px, transparent 1px);
+      background-size: 48px 48px;
+    }
+    .hero-bg-glow {
+      position: absolute;
+      left: 55%; top: 50%; transform: translate(-50%,-50%);
+      width: 600px; height: 600px;
+      background: radial-gradient(circle, rgba(126,211,33,0.12) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero-inner {
+      max-width: 1200px; width: 100%;
+      padding: 5rem 1.5rem;
+      display: grid;
+      grid-template-columns: 1fr 380px;
+      gap: 4rem;
+      align-items: center;
+      position: relative; z-index: 1;
+    }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      border: 1px solid var(--green);
+      color: var(--green);
+      font-family: var(--font-display);
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 5px 14px;
+      border-radius: 100px;
+      margin-bottom: 1.25rem;
+    }
+    .hero-badge::before {
+      content: '';
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--green);
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.3; }
+    }
+    .hero h1 {
+      font-family: var(--font-display);
+      font-size: clamp(42px, 6vw, 74px);
+      font-weight: 700;
+      line-height: 0.95;
+      letter-spacing: -1px;
+      text-transform: uppercase;
+      color: var(--white);
+      margin-bottom: 1.5rem;
+    }
+    .hero h1 em { color: var(--green); font-style: normal; }
+    .hero p {
+      font-size: 16px;
+      color: var(--gray-400);
+      max-width: 460px;
+      margin-bottom: 2.5rem;
+      line-height: 1.75;
+    }
+    .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; }
+    .btn-primary {
+      background: var(--green);
+      color: var(--black);
+      font-family: var(--font-display);
+      font-weight: 700; font-size: 14px;
+      letter-spacing: 1px; text-transform: uppercase;
+      padding: 14px 30px;
+      border-radius: var(--radius-sm);
+      border: none; cursor: pointer;
+      text-decoration: none;
+      transition: background 0.15s, box-shadow 0.15s;
+    }
+    .btn-primary:hover {
+      background: var(--green-bright);
+      box-shadow: 0 0 20px rgba(126,211,33,0.45);
+    }
+    .btn-outline {
+      background: transparent;
+      color: var(--green);
+      font-family: var(--font-display);
+      font-weight: 600; font-size: 14px;
+      letter-spacing: 1px; text-transform: uppercase;
+      padding: 13px 30px;
+      border-radius: var(--radius-sm);
+      border: 1.5px solid var(--green);
+      cursor: pointer; text-decoration: none;
+      transition: background 0.15s;
+    }
+    .btn-outline:hover { background: var(--green-light); }
+
+    .hero-stats {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 12px;
+    }
+    .stat-card {
+      background: var(--gray-900);
+      border: 1px solid rgba(126,211,33,0.2);
+      border-radius: var(--radius-md);
+      padding: 1.25rem;
+      text-align: center;
+      transition: border-color 0.2s;
+    }
+    .stat-card:hover { border-color: var(--green); }
+    .stat-card strong {
+      display: block;
+      font-family: var(--font-display);
+      font-size: 38px; font-weight: 700;
+      color: var(--green); line-height: 1;
+    }
+    .stat-card small {
+      font-size: 11px; color: var(--gray-400);
+      letter-spacing: 0.5px; margin-top: 4px;
+      display: block; text-transform: uppercase;
+    }
+
+    /* ────────────────────────────────────────────────────────────
+   5. FAIXA DE BENEFÍCIOS (STRIP)
+   ────────────────────────────────────────────────────────────
+   Faixa verde com 4 ícones de benefícios: frete, original, etc.
+   Para mudar a cor de fundo: altere "background" em .strip
+   .strip-text strong → título do benefício
+   .strip-text span   → subtítulo do benefício
+   ──────────────────────────────────────────────────────────── */
+/* ── STRIP ── */
+    .strip {
+      background: var(--green);
+      padding: 1.25rem 1.5rem;
+      overflow: hidden;
+    }
+    .strip-inner {
+      max-width: 1200px; margin: 0 auto;
+      display: flex; gap: 2rem; flex-wrap: wrap;
+      justify-content: space-between; align-items: center;
+    }
+    .strip-item { display: flex; align-items: center; gap: 10px; }
+    .strip-icon { font-size: 22px; }
+    .strip-text strong {
+      display: block;
+      font-family: var(--font-display);
+      font-size: 15px; font-weight: 700;
+      text-transform: uppercase; color: var(--black); line-height: 1;
+    }
+    .strip-text span { font-size: 12px; color: rgba(0,0,0,0.65); }
+
+    /* ────────────────────────────────────────────────────────────
+   6. ESTILOS GERAIS DE SEÇÃO
+   ────────────────────────────────────────────────────────────
+   Regras compartilhadas por todas as seções do site.
+   .section      → espaçamento interno (padding) das seções
+   .section-alt  → seção com fundo diferente (cinza escuro)
+   .container    → largura máxima de 1200px centralizado
+   .section-label → texto pequeno acima do título (ex: "MARCAS")
+   .section-title → título grande da seção
+   .section-subtitle → subtítulo descritivo
+   ──────────────────────────────────────────────────────────── */
+/* ── SECTIONS ── */
+    .section { padding: 5rem 1.5rem; }
+    .section-alt { background: var(--gray-900); }
+    .container { max-width: 1200px; margin: 0 auto; }
+
+    .section-label {
+      font-family: var(--font-display);
+      font-size: 11px; font-weight: 600;
+      letter-spacing: 3px; text-transform: uppercase;
+      color: var(--green); margin-bottom: 0.5rem;
+    }
+    .section-title {
+      font-family: var(--font-display);
+      font-size: clamp(28px, 4vw, 46px);
+      font-weight: 700; line-height: 1.0;
+      text-transform: uppercase;
+      color: var(--white); margin-bottom: 0.5rem;
+    }
+    .section-subtitle {
+      font-size: 15px; color: var(--gray-400);
+      max-width: 520px; margin-bottom: 3rem;
+      line-height: 1.7;
+    }
+
+    /* ────────────────────────────────────────────────────────────
+   7. SEÇÃO DE MARCAS — GLASSMORPHISM
+   ────────────────────────────────────────────────────────────
+   Grid com cards no estilo "glass" (vidro fosco) para as marcas.
+
+   COMO ADICIONAR A LOGO DE UMA MARCA:
+   No index.html, dentro de cada .brand-glass-img-wrap,
+   substitua o <div class="brand-placeholder"> por:
+     <img src="imagens/nomeDaMarca.png" alt="Nome" class="brand-img"/>
+
+   CLASSES PRINCIPAIS:
+   .marcas-section       → seção com fundo degradê escuro
+   .brands-glass-grid    → grade responsiva (4 colunas em desktop)
+   .brand-glass-card     → cada card com efeito glass
+   .brand-glass-shine    → brilho diagonal no topo do card
+   .brand-glass-img-wrap → área da imagem/logo da marca
+   .brand-placeholder    → círculo com iniciais (substitua pela imagem)
+   .brand-img            → tag <img> quando você colocar a logo real
+   .brand-glass-name     → nome da marca
+   .brand-glass-refs     → quantidade de referências
+   .brand-glass-arrow    → seta no canto inferior direito
+   ──────────────────────────────────────────────────────────── */
+/* ── MARCAS GLASS ── */
+
+    /* Fundo da seção: degradê escuro com reflexo verde sutil */
+    .marcas-section {
+      background: linear-gradient(160deg, #0a0a0a 0%, #0e1a0a 50%, #080808 100%);
+      position: relative;
+      overflow: hidden;
+    }
+    /* Círculo de luz verde no fundo da seção */
+    .marcas-section::before {
+      content: '';
+      position: absolute;
+      top: -200px; left: 50%;
+      transform: translateX(-50%);
+      width: 900px; height: 500px;
+      background: radial-gradient(ellipse, rgba(126,211,33,0.06) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    /* Grade: 4 colunas fixas no desktop, responsivo em telas menores */
+    .brands-glass-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.25rem;
+      position: relative; z-index: 1;
+    }
+
+    /* Card principal com efeito glassmorphism */
+    .brand-glass-card {
+      position: relative;
+      background: rgba(255, 255, 255, 0.04);   /* fundo levemente transparente */
+      backdrop-filter: blur(12px);              /* desfoque de vidro */
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.08); /* borda fina clara */
+      border-radius: 16px;
+      padding: 2rem 1.5rem 1.5rem;
+      text-decoration: none;
+      color: var(--white);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+      overflow: hidden;
+      cursor: pointer;
+      transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+    }
+
+    /* Hover: levanta, acende borda e glow verde */
+    .brand-glass-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(126, 211, 33, 0.5);
+      background: rgba(126, 211, 33, 0.06);
+      box-shadow:
+        0 8px 32px rgba(126, 211, 33, 0.18),
+        0 0 0 1px rgba(126, 211, 33, 0.2) inset;
+    }
+
+    /* Brilho diagonal no topo do card (reflexo de vidro) */
+    .brand-glass-shine {
+      position: absolute;
+      top: 0; left: -60%;
+      width: 50%; height: 100%;
+      background: linear-gradient(
+        105deg,
+        transparent 40%,
+        rgba(255,255,255,0.06) 50%,
+        transparent 60%
+      );
+      pointer-events: none;
+      transition: left 0.5s ease;
+    }
+    .brand-glass-card:hover .brand-glass-shine {
+      left: 120%; /* brilho desliza para a direita no hover */
+    }
+
+    /* Área da imagem/logo da marca */
+    .brand-glass-img-wrap {
+      width: 90px; height: 90px;
+      border-radius: 14px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      display: flex; align-items: center; justify-content: center;
+      overflow: hidden;
+      transition: background 0.3s, border-color 0.3s;
+      flex-shrink: 0;
+    }
+    .brand-glass-card:hover .brand-glass-img-wrap {
+      background: rgba(126,211,33,0.08);
+      border-color: rgba(126,211,33,0.3);
+    }
+
+    /* Placeholder com iniciais — REMOVA quando colocar a imagem real */
+    .brand-placeholder {
+      font-family: var(--font-display);
+      font-size: 24px;
+      font-weight: 900;
+      color: var(--green);
+      letter-spacing: 1px;
+      opacity: 0.7;
+      transition: opacity 0.3s;
+    }
+    .brand-glass-card:hover .brand-placeholder { opacity: 1; }
+
+    /* Imagem real da marca (use quando substituir o placeholder) */
+    .brand-img {
+      width: 100%; height: 100%;
+      object-fit: contain;        /* mantém proporção sem cortar */
+      padding: 10px;              /* espaço interno para a logo não grudar na borda */
+      filter: brightness(0.9) saturate(0.85);
+      transition: filter 0.3s;
+    }
+    .brand-glass-card:hover .brand-img {
+      filter: brightness(1.1) saturate(1);
+    }
+
+    /* Informações da marca (nome + referências) */
+    .brand-glass-info {
+      text-align: center;
+      flex: 1;
+    }
+    .brand-glass-name {
+      font-family: var(--font-display);
+      font-size: 18px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--white);
+      margin-bottom: 4px;
+      line-height: 1;
+    }
+    .brand-glass-refs {
+      font-size: 11px;
+      color: rgba(126,211,33,0.7);
+      letter-spacing: 0.5px;
+    }
+
+    /* Seta no canto inferior — aparece no hover */
+    .brand-glass-arrow {
+      position: absolute;
+      bottom: 14px; right: 16px;
+      color: rgba(126,211,33,0);
+      transition: color 0.3s, transform 0.3s;
+    }
+    .brand-glass-card:hover .brand-glass-arrow {
+      color: rgba(126,211,33,0.8);
+      transform: translateX(3px);
+    }
+
+    /* Responsivo: 2 colunas no tablet */
+    @media (max-width: 860px) {
+      .brands-glass-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    /* Responsivo: 2 colunas no celular também (cards maiores) */
+    @media (max-width: 480px) {
+      .brands-glass-grid { grid-template-columns: repeat(2, 1fr); gap: 0.75rem; }
+      .brand-glass-img-wrap { width: 72px; height: 72px; }
+    }
+
+    /* ────────────────────────────────────────────────────────────
+   8. SEÇÃO DE PRODUTOS (PEÇAS MAIS VENDIDAS)
+   ────────────────────────────────────────────────────────────
+   Grid de cards com as peças em destaque.
+   .products-grid   → layout em grade responsivo
+   .product-card    → cada card de produto
+   .product-img     → área da imagem/ícone do produto
+   .product-badge   → etiqueta colorida (ex: "-18%", "Novo")
+   .product-cat     → categoria em verde (ex: "TRANSMISSÃO")
+   .product-name    → nome do produto
+   .product-compat  → compatibilidade (ex: "Honda CG 160")
+   .product-price   → preço em verde
+   .product-price-old → preço antigo riscado
+   .product-stars   → estrelas de avaliação
+   .btn-add         → botão "Solicitar pedido"
+   ──────────────────────────────────────────────────────────── */
+/* ── PRODUTOS ── */
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 1.25rem;
+    }
+    .product-card {
+      background: var(--gray-850);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      border: 1px solid var(--gray-700);
+      transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
+    }
+    .product-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--green);
+      box-shadow: 0 8px 28px rgba(126,211,33,0.12);
+    }
+    .product-img {
+      width: 100%; height: 160px;
+      background: var(--gray-800);
+      display: flex; align-items: center; justify-content: center;
+      position: relative; border-bottom: 1px solid var(--gray-700);
+    }
+    .product-img-icon { font-size: 52px; line-height: 1; }
+    .product-badge {
+      position: absolute; top: 10px; left: 10px;
+      background: var(--green);
+      color: var(--black);
+      font-family: var(--font-display);
+      font-size: 10px; font-weight: 700;
+      letter-spacing: 1px; text-transform: uppercase;
+      padding: 3px 8px; border-radius: var(--radius-sm);
+    }
+    .product-info { padding: 1rem 1.25rem 1.25rem; }
+    .product-cat {
+      font-size: 10px; font-weight: 500;
+      letter-spacing: 1.5px; text-transform: uppercase;
+      color: var(--green); margin-bottom: 4px;
+    }
+    .product-name {
+      font-family: var(--font-display);
+      font-size: 18px; font-weight: 700;
+      line-height: 1.2; color: var(--white);
+      margin-bottom: 6px;
+    }
+    .product-compat {
+      font-size: 12px; color: var(--gray-400);
+      margin-bottom: 12px;
+    }
+    .product-price-row {
+      display: flex; align-items: baseline;
+      gap: 8px; margin-bottom: 10px;
+    }
+    .product-price {
+      font-family: var(--font-display);
+      font-size: 26px; font-weight: 700;
+      color: var(--green);
+    }
+    .product-price-old {
+      font-size: 13px; color: var(--gray-600);
+      text-decoration: line-through;
+    }
+    .product-stars { font-size: 13px; color: var(--green); margin-bottom: 12px; }
+    .btn-add {
+      width: 100%;
+      background: transparent;
+      color: var(--green);
+      font-family: var(--font-display);
+      font-weight: 700; font-size: 13px;
+      letter-spacing: 1px; text-transform: uppercase;
+      border: 1.5px solid var(--green);
+      border-radius: var(--radius-sm);
+      padding: 10px; cursor: pointer;
+      transition: background 0.15s, color 0.15s;
+    }
+    .btn-add:hover {
+      background: var(--green); color: var(--black);
+    }
+
+    /* ────────────────────────────────────────────────────────────
+   9. SEÇÃO DE DEPOIMENTOS
+   ────────────────────────────────────────────────────────────
+   Cards com avaliações de clientes.
+   .reviews-grid    → layout em grade responsivo
+   .review-card     → cada card de depoimento
+   .review-stars    → estrelas (★★★★★)
+   .review-text     → texto do depoimento
+   .review-avatar   → círculo com iniciais do cliente
+   .review-verified → etiqueta "Verificado"
+   ──────────────────────────────────────────────────────────── */
+/* ── DEPOIMENTOS ── */
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1.25rem;
+    }
+    .review-card {
+      background: var(--gray-850);
+      border-radius: var(--radius-lg);
+      padding: 1.5rem;
+      border: 1px solid var(--gray-700);
+      position: relative;
+      transition: border-color 0.2s;
+    }
+    .review-card:hover { border-color: rgba(126,211,33,0.4); }
+    .review-stars { color: var(--green); font-size: 14px; margin-bottom: 0.75rem; }
+    .review-text {
+      font-size: 14px; line-height: 1.75;
+      color: var(--gray-400); margin-bottom: 1.25rem;
+    }
+    .review-author { display: flex; align-items: center; gap: 10px; }
+    .review-avatar {
+      width: 40px; height: 40px; border-radius: 50%;
+      background: var(--green);
+      color: var(--black);
+      font-family: var(--font-display); font-weight: 700; font-size: 14px;
+      display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+    }
+    .review-author-info strong { display: block; font-size: 14px; font-weight: 500; color: var(--white); }
+    .review-author-info small { font-size: 11px; color: var(--gray-400); }
+    .review-verified {
+      position: absolute; top: 1.25rem; right: 1.25rem;
+      background: rgba(126,211,33,0.1);
+      color: var(--green);
+      font-size: 10px; font-weight: 500;
+      padding: 3px 8px; border-radius: 100px;
+      border: 1px solid rgba(126,211,33,0.3);
+    }
+
+    /* ────────────────────────────────────────────────────────────
+   10. SEÇÃO DE REDES SOCIAIS
+   ────────────────────────────────────────────────────────────
+   Cards coloridos das redes sociais (Instagram, WhatsApp, etc.).
+   .social-grid      → layout em grade
+   .social-card      → cada card de rede social
+   .social-card.instagram → cor do card do Instagram
+   .social-card.whatsapp  → cor do card do WhatsApp
+   .social-card.youtube   → cor do card do YouTube
+   .social-card.facebook  → cor do card do Facebook
+   ──────────────────────────────────────────────────────────── */
+/* ── REDES SOCIAIS ── */
+    #redes-sociais { background: var(--black); }
+    .social-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+    }
+    .social-card {
+      border-radius: var(--radius-lg);
+      padding: 1.75rem 1.5rem;
+      text-align: center;
+      cursor: pointer;
+      transition: transform 0.2s, filter 0.2s;
+      text-decoration: none; color: var(--white);
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+    .social-card:hover { transform: translateY(-4px); filter: brightness(1.15); }
+    .social-card.instagram { background: linear-gradient(135deg,#833ab4,#fd1d1d,#fcb045); }
+    .social-card.whatsapp { background: #128C7E; }
+    .social-card.youtube { background: #CC0000; }
+    .social-card.facebook { background: #1877F2; }
+    .social-icon { font-size: 38px; margin-bottom: 0.75rem; }
+    .social-card strong {
+      display: block;
+      font-family: var(--font-display);
+      font-size: 20px; font-weight: 700;
+      text-transform: uppercase;
+    }
+    .social-card span { font-size: 12px; opacity: 0.85; }
+
+    /* ────────────────────────────────────────────────────────────
+   11. SEÇÃO DE ATENDIMENTO / SAC
+   ────────────────────────────────────────────────────────────
+   Cards dos canais de contato (WhatsApp, telefone, e-mail...).
+   .atendimento-grid → layout em grade
+   .atend-card       → cada card de canal
+   .atend-icon       → ícone do canal
+   .atend-detail     → número/e-mail em destaque verde
+   .atend-hours      → horário de funcionamento
+   .atend-btn        → botão principal verde
+   .atend-btn.secondary → botão alternativo transparente
+   ──────────────────────────────────────────────────────────── */
+/* ── ATENDIMENTO ── */
+    .atendimento-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.25rem;
+    }
+    .atend-card {
+      background: var(--gray-850);
+      border-radius: var(--radius-lg);
+      padding: 1.75rem;
+      border: 1px solid var(--gray-700);
+      display: flex; flex-direction: column; gap: 0.75rem;
+      transition: border-color 0.2s;
+    }
+    .atend-card:hover { border-color: rgba(126,211,33,0.35); }
+    .atend-icon {
+      width: 50px; height: 50px;
+      background: var(--green-light);
+      border: 1px solid rgba(126,211,33,0.3);
+      border-radius: var(--radius-md);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 24px;
+    }
+    .atend-card h3 {
+      font-family: var(--font-display);
+      font-size: 20px; font-weight: 700;
+      text-transform: uppercase; color: var(--white);
+    }
+    .atend-card p { font-size: 13px; color: var(--gray-400); line-height: 1.65; }
+    .atend-detail {
+      font-family: var(--font-display);
+      font-size: 16px; font-weight: 700; color: var(--green);
+    }
+    .atend-hours { font-size: 11px; color: var(--gray-600); }
+    .atend-btn {
+      display: inline-block; margin-top: auto;
+      background: var(--green); color: var(--black);
+      font-family: var(--font-display);
+      font-size: 12px; font-weight: 700;
+      letter-spacing: 1px; text-transform: uppercase;
+      padding: 10px 18px; border-radius: var(--radius-sm);
+      border: none; cursor: pointer;
+      text-decoration: none; text-align: center;
+      transition: background 0.15s, box-shadow 0.15s;
+    }
+    .atend-btn:hover {
+      background: var(--green-bright);
+      box-shadow: 0 0 14px rgba(126,211,33,0.4);
+    }
+    .atend-btn.secondary {
+      background: transparent; color: var(--green);
+      border: 1.5px solid var(--green);
+    }
+    .atend-btn.secondary:hover { background: var(--green-light); box-shadow: none; }
+
+    /* ────────────────────────────────────────────────────────────
+   12. RODAPÉ (FOOTER)
+   ────────────────────────────────────────────────────────────
+   Rodapé preto com logo, links e informações legais.
+   .footer-grid      → layout em 4 colunas
+   .footer-brand     → coluna com logo e descrição
+   .footer-social-row → ícones das redes sociais no rodapé
+   .footer-social-btn → cada botão de rede social
+   footer h4         → título de cada coluna do rodapé
+   footer ul li a    → links do rodapé
+   .footer-bottom    → linha final com copyright e links legais
+   ──────────────────────────────────────────────────────────── */
+/* ── FOOTER ── */
+    footer {
+      background: var(--black);
+      border-top: 1px solid rgba(126,211,33,0.2);
+      color: var(--green);
+      padding: 4rem 1.5rem 0;
+    }
+    .footer-grid {
+      max-width: 1200px; margin: 0 auto;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 3rem;
+      padding-bottom: 3rem;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .footer-brand p { font-size: 13px; line-height: 1.75; max-width: 280px; margin: 1rem 0 1.25rem; }
+    .footer-social-row { display: flex; gap: 10px; }
+    .footer-social-btn {
+      width: 36px; height: 36px;
+      border-radius: var(--radius-sm);
+      background: var(--gray-800);
+      border: 1px solid var(--gray-600);
+      display: flex; align-items: center; justify-content: center;
+      text-decoration: none; font-size: 16px;
+      transition: background 0.15s, border-color 0.15s;
+    }
+    .footer-social-btn:hover { background: var(--green); border-color: var(--green); }
+    footer h4 {
+      font-family: var(--font-display);
+      font-size: 14px; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 1.5px;
+      color: var(--white); margin-bottom: 1.25rem;
+    }
+    footer ul { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+    footer ul li a {
+      color: var(--gray-400); text-decoration: none;
+      font-size: 13px; transition: color 0.15s;
+    }
+    footer ul li a:hover { color: var(--green); }
+    .footer-bottom {
+      max-width: 1200px; margin: 0 auto;
+      padding: 1.5rem 0;
+      display: flex; justify-content: space-between; align-items: center;
+      flex-wrap: wrap; gap: 12px; font-size: 12px;
+    }
+    .footer-bottom a { color: var(--gray-600); text-decoration: none; }
+    .footer-bottom a:hover { color: var(--green); }
+    .footer-bottom-links { display: flex; gap: 1.5rem; }
+
+    /* ────────────────────────────────────────────────────────────
+   13. RESPONSIVIDADE (CELULAR E TABLET)
+   ────────────────────────────────────────────────────────────
+   Regras que adaptam o layout para telas menores.
+   @media (max-width: 900px) → tablet: esconde o menu, ajusta hero
+   @media (max-width: 540px) → celular: rodapé em coluna única
+   ──────────────────────────────────────────────────────────── */
+/* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      .hero-inner { grid-template-columns: 1fr; }
+      .hero-stats { display: none; }
+      .header-inner { grid-template-columns: auto 1fr; }
+      nav { display: none; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 540px) {
+      .footer-grid { grid-template-columns: 1fr; }
+    }

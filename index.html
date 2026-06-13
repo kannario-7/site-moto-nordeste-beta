@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<!--
+  ============================================================
+  ARQUIVO: index.html
+  SITE: Moto Nordeste BA – Distribuidora de Peças
+  ============================================================
+
+  ESTRUTURA DO SITE (de cima para baixo):
+  ─────────────────────────────────────────
+  1.  <head>          → Configurações, fontes e link para estilo.css
+  2.  .topbar         → Barra preta no topo (telefone e cidade)
+  3.  <header>        → Cabeçalho fixo com logo, menu e botão
+  4.  <main>          → Conteúdo principal
+      4a. .hero           → Banner principal (título + botões)
+      4b. .strip          → Faixa verde com benefícios
+      4c. #marcas         → Seção das marcas (Honda, Yamaha...)
+      4d. #mais-vendidas  → Peças mais vendidas
+      4e. #depoimentos    → Avaliações de clientes
+      4f. #redes-sociais  → Cards das redes sociais
+      4g. #atendimento    → Canais de SAC e contato
+  5.  <footer>        → Rodapé com links e copyright
+
+  ARQUIVOS NECESSÁRIOS:
+  ─────────────────────────────────────────
+  index.html  → Este arquivo (estrutura e conteúdo)
+  estilo.css  → Cores, fontes e layout visual
+  logo.png    → Logo da Moto Nordeste BA
+
+  DICA RÁPIDA PARA EDITAR:
+  ─────────────────────────────────────────
+  • Telefone/e-mail:   procure por "(73)" ou "contato@"
+  • Endereço:          procure por "Bahia – Brasil"
+  • Nome da empresa:   procure por "MotoNordeste"
+  • Redes sociais:     procure por "instagram.com/motonordesteba"
+  • Produtos:          procure por "<!-- PRODUTO" (seção #mais-vendidas)
+  • Depoimentos:       procure por "review-card"
+  • Rodapé – links:    procure por "<footer>"
+  ============================================================
+-->
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>MotoNordeste | Distribuidora de Peças</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="./styles.css"/>
+  <link rel="icon" type="image/png" href="./img/logo.png">
+
+</head>
+<body>
+
+<a href="#main-content" class="skip-link">Pular para o conteúdo</a>
+
+<!-- ══════════════════════════════════════════
+     BARRA SUPERIOR (TOPBAR)
+     Edite aqui: cidade, telefone, e-mail
+     ══════════════════════════════════════════ -->
+<!-- TOPBAR -->
+<div class="topbar">
+  <div class="topbar-inner">
+    <span><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#7ED321" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg> Bahia – Atendemos todo o Nordeste e Brasil</span>
+    <div class="topbar-right">
+      <a href="tel:+5575999990930"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-2px;margin-right:4px"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.07 11 19.79 19.79 0 0 1 1 2.18 2 2 0 0 1 2.96.04h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.09 7.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg> (75) 9 9999-0930</a>
+      <a href="mailto:contato@motonordesteba.com.br"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-2px;margin-right:4px"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg> contato@motonordesteba.com.br</a>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     CABEÇALHO FIXO (HEADER)
+     Edite aqui: nome da empresa, links do menu, botão de orçamento
+     ══════════════════════════════════════════ -->
+<!-- HEADER -->
+<header>
+  <div class="header-inner">
+    <a href="#" class="logo" aria-label="Moto Nordeste BA – Início">
+      <img class="logo-img" src="./img/logo.png" alt="motonordesteba" />
+      <div class="logo-text">
+        <span class="logo-name">Moto<span>Nordeste</span></span>
+        <span class="logo-sub">Distribuidora de Peças</span>
+      </div>
+    </a>
+    <nav aria-label="Menu principal">
+      <a href="#marcas">Marcas</a>
+      <a href="#mais-vendidas">Peças</a>
+      <a href="#depoimentos">Clientes</a>
+      <a href="#redes-sociais">Social</a>
+      <a href="#atendimento">Contato</a>
+    </nav>
+    <a href="#atendimento" class="header-cta">Orçamento</a>
+  </div>
+</header>
+
+<main id="main-content">
+
+  <!-- ══════════════════════════════════════════
+     BANNER PRINCIPAL (HERO)
+     Edite aqui: título, subtítulo, botões, números de estatística
+     ══════════════════════════════════════════ -->
+<!-- HERO -->
+  <section class="hero" aria-labelledby="hero-heading">
+    <div class="hero-bg-grid" aria-hidden="true"></div>
+    <div class="hero-bg-glow" aria-hidden="true"></div>
+    <div class="hero-inner">
+      <div>
+        <p class="hero-badge">Distribuidora Oficial – Bahia</p>
+        <h1 id="hero-heading">
+          Peças e Acessórios<br/>
+          para <em>Todas</em> as Motos
+        </h1>
+        <p>Catálogo completo com as melhores marcas do mercado. Entrega para todo o Nordeste e Brasil. Garantia de procedência em cada peça.</p>
+        <div class="hero-actions">
+          <a href="#mais-vendidas" class="btn-primary">Ver catálogo</a>
+          <a href="#atendimento" class="btn-outline">Falar com consultor</a>
+        </div>
+      </div>
+      <div class="hero-stats" aria-label="Números da empresa">
+        <div class="stat-card">
+          <strong>+25K</strong>
+          <small>Itens em estoque</small>
+        </div>
+        <div class="stat-card">
+          <strong>+50</strong>
+          <small>Marcas de peças</small>
+        </div>
+        <div class="stat-card">
+          <strong>48h</strong>
+          <small>Entrega em toda a Bahia</small>
+        </div>
+        <div class="stat-card">
+          <strong>98%</strong>
+          <small>Clientes satisfeitos</small>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════
+     FAIXA DE BENEFÍCIOS (STRIP)
+     Edite aqui: os 4 ícones com título e descrição de benefício
+     ══════════════════════════════════════════ -->
+<!-- STRIP -->
+  <div class="strip">
+    <div class="strip-inner">
+      <div class="strip-item">
+        <span class="strip-icon" aria-hidden="true"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13" rx="1"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></span>
+        <div class="strip-text">
+          <strong>Frete Grátis</strong>
+          <span>Compras acima de R$ 300</span>
+        </div>
+      </div>
+      <div class="strip-item">
+        <span class="strip-icon" aria-hidden="true"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="m9 12 2 2 4-4"/></svg></span>
+        <div class="strip-text">
+          <strong>Peças Originais</strong>
+          <span>100% garantia de procedência</span>
+        </div>
+      </div>
+      <div class="strip-item">
+        <span class="strip-icon" aria-hidden="true"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"/><path d="M3 21v-5h5"/></svg></span>
+        <div class="strip-text">
+          <strong>Troca Fácil</strong>
+          <span>30 dias sem burocracia</span>
+        </div>
+      </div>
+      <div class="strip-item">
+        <span class="strip-icon" aria-hidden="true"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg></span>
+        <div class="strip-text">
+          <strong>Parcelamento</strong>
+          <span>Até 12x sem juros</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════
+     SEÇÃO DE MARCAS — ESTILO GLASS
+     ══════════════════════════════════════════
+     COMO ADICIONAR A IMAGEM DA MARCA:
+       Substitua o bloco <div class="brand-placeholder">
+       pela tag <img> com o caminho da sua imagem.
+
+       ANTES (sem imagem):
+         <div class="brand-placeholder">H</div>
+
+       DEPOIS (com imagem):
+         <img src="imagens/honda.png" alt="Honda" class="brand-img"/>
+
+     DICA: Coloque as logos das marcas na pasta "imagens/"
+     ao lado do index.html. Use PNG com fundo transparente
+     para melhor resultado no efeito glass.
+
+     Para adicionar nova marca: copie um bloco
+     <a class="brand-glass-card">...</a> completo.
+     ══════════════════════════════════════════ -->
+<!-- MARCAS -->
+  <section id="marcas" class="section marcas-section" aria-labelledby="marcas-heading">
+    <div class="container">
+      <p class="section-label">Marcas</p>
+      <h2 class="section-title" id="marcas-heading">Peças para as principais marcas</h2>
+      <p class="section-subtitle">Cobertura completa das marcas mais populares no Nordeste e no Brasil.</p>
+
+      <div class="brands-glass-grid">
+
+        <!-- ─── MARCA 1 ─── Substitua "H" por <img src="imagens/honda.png" alt="Honda" class="brand-img"/> -->
+        <a href="#" class="brand-glass-card" aria-label="TMAC – ver peças">
+          <div class="brand-glass-shine"></div>
+          <div class="brand-glass-img-wrap">
+            <div class="brand-placeholder"><img src="./img/tmac.png" alt="tmac
+              " class="brand-img"/></div>
+            <!-- <img src="imagens/honda.png" alt="Honda" class="brand-img"/> -->
+          </div>
+          <div class="brand-glass-info">
+            <p class="brand-glass-name">TMAC</p>
+            <span class="brand-glass-refs">+5k referências</span>
+          </div>
+          <div class="brand-glass-arrow">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </div>
+        </a>
+
+        <!-- ─── MARCA 2 ─── Substitua "Y" por <img src="imagens/yamaha.png" alt="Yamaha" class="brand-img"/> -->
+        <a href="#" class="brand-glass-card" aria-label="Iron – ver peças">
+          <div class="brand-glass-shine"></div>
+          <div class="brand-glass-img-wrap">
+            <div class="brand-placeholder"><img src="./img/IRONCOMPLETO1.png" alt="iron" class="brand-img"/></div>
+            <!-- <img src="imagens/yamaha.png" alt="Yamaha" class="brand-img"/> -->
+          </div>
+          <div class="brand-glass-info">
+            <p class="brand-glass-name">Iron</p>
+            <span class="brand-glass-refs">+3.800 referências</span>
+          </div>
+          <div class="brand-glass-arrow">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </div>
+        </a>
+
+        <!-- ─── MARCA 3 ─── Substitua "SZ" por <img src="imagens/suzuki.png" alt="Suzuki" class="brand-img"/> -->
+        <a href="#" class="brand-glass-card" aria-label="Protork – ver peças">
+          <div class="brand-glass-shine"></div>
+          <div class="brand-glass-img-wrap">
+            <div class="brand-placeholder"><img src="/img/protork.png" alt="protork" class="brand-img"/></div>
+            <!-- <img src="imagens/suzuki.png" alt="Suzuki" class="brand-img"/> -->
+          </div>
+          <div class="brand-glass-info">
+            <p class="brand-glass-name">Protork</p>
+            <span class="brand-glass-refs">+2.100 referências</span>
+          </div>
+          <div class="brand-glass-arrow">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </div>
+        </a>
+
+        <!-- ─── MARCA 4 ─── Substitua "KW" por <img src="imagens/kawasaki.png" alt="Kawasaki" class="brand-img"/> -->
+        <a href="#" class="brand-glass-card" aria-label="Riffel – ver peças">
+          <div class="brand-glass-shine"></div>
+          <div class="brand-glass-img-wrap">
+            <div class="brand-placeholder"><img src="/img/riffel.png" alt="riffel" class="brand-img"/></div>
+            <!-- <img src="imagens/kawasaki.png" alt="Kawasaki" class="brand-img"/> -->
+          </div>
+          <div class="brand-glass-info">
+            <p class="brand-glass-name">Riffel</p>
+            <span class="brand-glass-refs">+1.900 referências</span>
+          </div>
+          <div class="brand-glass-arrow">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </div>
+        </a>
+
+        <!-- ─── MARCA 5 ─── Substitua "SH" por <img src="imagens/shineray.png" alt="Shineray" class="brand-img"/> -->
+        <a href="#" class="brand-glass-card" aria-label="Motul – ver peças">
+          <div class="brand-glass-shine"></div>
+          <div class="brand-glass-img-wrap">
+            <div class="brand-placeholder"><img src="/img/motul.png" alt="motul" class="brand-img"/></div>
+            <!-- <img src="imagens/shineray.png" alt="Shineray" class="brand-img"/> -->
+          </div>
+          <div class="brand-glass-info">
+            <p class="brand-glass-name">motul</p>
+            <span class="brand-glass-refs">+900 referências</span>
+          </div>
+          <div class="brand-glass-arrow">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </div>
+        </a>
+
+        <!-- ─── MARCA 6 ─── Substitua "DF" por <img src="imagens/dafra.png" alt="Dafra" class="brand-img"/> -->
+        <a href="#" class="brand-glass-card" aria-label="Mobil – ver peças">
+          <div class="brand-glass-shine"></div>
+          <div class="brand-glass-img-wrap">
+            <div class="brand-placeholder"><img src="/img/mobil.png" alt="mobil" class="brand-img"/></div>
+            <!-- <img src="imagens/dafra.png" alt="Dafra" class="brand-img"/> -->
+          </div>
+          <div class="brand-glass-info">
+            <p class="brand-glass-name">Mobil</p>
+            <span class="brand-glass-refs">+750 referências</span>
+          </div>
+          <div class="brand-glass-arrow">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </div>
+        </a>
+
+        <!-- ─── MARCA 7 ─── Substitua "HJ" por <img src="imagens/haojue.png" alt="Haojue" class="brand-img"/> -->
+        <a href="#" class="brand-glass-card" aria-label="Gvs – ver peças">
+          <div class="brand-glass-shine"></div>
+          <div class="brand-glass-img-wrap">
+            <div class="brand-placeholder"><img src="/img/gvs.png" alt="gvs" class="brand-img"/></div>
+            <!-- <img src="imagens/haojue.png" alt="Haojue" class="brand-img"/> -->
+          </div>
+          <div class="brand-glass-info">
+            <p class="brand-glass-name">GVS SPORT</p>
+            <span class="brand-glass-refs">+680 referências</span>
+          </div>
+          <div class="brand-glass-arrow">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </div>
+        </a>
+
+        <!-- ─── MARCA 8 ─── Substitua "BM" por <img src="imagens/bmw.png" alt="BMW" class="brand-img"/> -->
+        <a href="#" class="brand-glass-card" aria-label="Circuit – ver peças">
+          <div class="brand-glass-shine"></div>
+          <div class="brand-glass-img-wrap">
+            <div class="brand-placeholder"><img src="/img/circuit.png" alt="circuit" class="brand-img"/></div>
+            <!-- <img src="imagens/bmw.png" alt="BMW" class="brand-img"/> -->
+          </div>
+          <div class="brand-glass-info">
+            <p class="brand-glass-name">Circuit</p>
+            <span class="brand-glass-refs">+540 referências</span>
+          </div>
+          <div class="brand-glass-arrow">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </div>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════
+     PEÇAS MAIS VENDIDAS
+     Edite aqui: nome, preço, compatibilidade e categoria de cada peça
+     Para adicionar peça: copie um bloco <article class="product-card">
+     ══════════════════════════════════════════ -->
+<!-- MAIS VENDIDAS -->
+  <section id="mais-vendidas" class="section section-alt" aria-labelledby="mais-vendidas-heading">
+    <div class="container">
+      <p class="section-label">Mais Vendidos</p>
+      <h2 class="section-title" id="mais-vendidas-heading">Peças em destaque</h2>
+      <p class="section-subtitle">Os itens com maior saída. Estoque garantido e pronta entrega para todo o Brasil.</p>
+      <div class="products-grid">
+
+        <article class="product-card">
+          <div class="product-img">
+            <span class="product-img-icon" role="img" aria-label="Kit de transmissão"><img width="200" height="150" src="./img/kit_transmiss_o_riffel_9.png" alt="Kit de transmissão"/></span>
+            <span class="product-badge">-18%</span>
+          </div>
+          <div class="product-info">
+            <p class="product-cat">Transmissão</p>
+            <h3 class="product-name">Kit Relação Completo</h3>
+            <p class="product-compat">Honda CG 160 / Fan / Start</p>
+            <div class="product-price-row">
+              <span class="product-price">R$ 189,90</span>
+              <span class="product-price-old">R$ 231,00</span>
+            </div>
+            <p class="product-stars" aria-label="4.9 estrelas">★★★★★ <span style="color:#555">(214)</span></p>
+            <button class="btn-add" type="button">Solicitar pedido</button>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <div class="product-img">
+            <span class="product-img-icon" role="img" aria-label="Bateria GTI"><img width="200" height="170" src="./img/bateria gti.png" alt="Bateria GTI"/></span>
+            <span class="product-badge">Mais vendido</span>
+          </div>
+          <div class="product-info">
+            <p class="product-cat">Ignição e Elétrica</p>
+            <h3 class="product-name">Bateria GTI 6BS </h3>
+            <p class="product-compat">Honda Titan 125 /150 </p>
+            <div class="product-price-row">
+              <span class="product-price">R$ 00,00</span>
+            </div>
+            <p class="product-stars" aria-label="4.8 estrelas">★★★★★ <span style="color:#555">(389)</span></p>
+            <button class="btn-add" type="button">Solicitar pedido</button>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <div class="product-img">
+            <span class="product-img-icon" role="img" aria-label="Patins de freio"><img width="200" height="150" src="./img/patinsdefreio.png" alt="Patins de freio"/></span>
+          </div>
+          <div class="product-info">
+            <p class="product-cat">Freios</p>
+            <h3 class="product-name">Patins de freio</h3>
+            <p class="product-compat">Honda Biz 125/ NXR150 98/... </p>
+            <div class="product-price-row">
+              <span class="product-price">R$ 00,00</span>
+            </div>
+            <p class="product-stars" aria-label="4.7 estrelas">★★★★☆ <span style="color:#555">(501)</span></p>
+            <button class="btn-add" type="button">Solicitar pedido</button>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <div class="product-img">
+            <span class="product-img-icon" role="img" aria-label="Filtro de ar"><img width="200" height="160" src=".//img/Filtrodear.png" alt="Filtro de ar"/></span>
+            <span class="product-badge">Novo</span>
+          </div>
+          <div class="product-info">
+            <p class="product-cat">Filtros</p>
+            <h3 class="product-name">Filtro de Ar Esportivo</h3>
+            <p class="product-compat">Honda CB 300 / Twister</p>
+            <div class="product-price-row">
+              <span class="product-price">R$ 79,90</span>
+              <span class="product-price-old">R$ 94,00</span>
+            </div>
+            <p class="product-stars" aria-label="4.9 estrelas">★★★★★ <span style="color:#555">(97)</span></p>
+            <button class="btn-add" type="button">Solicitar pedido</button>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <div class="product-img">
+            <span class="product-img-icon" role="img" aria-label="Amortecedor"><img width="200" height="170" src="./img/amortecedor.png" alt="Amortecedor"/></span>
+          </div>
+          <div class="product-info">
+            <p class="product-cat">Suspensão</p>
+            <h3 class="product-name">Amortecedor Traseiro</h3>
+            <p class="product-compat">Honda Titan 150 / 160</p>
+            <div class="product-price-row">
+              <span class="product-price">R$ 145,00</span>
+            </div>
+            <p class="product-stars" aria-label="4.6 estrelas">★★★★☆ <span style="color:#555">(172)</span></p>
+            <button class="btn-add" type="button">Solicitar pedido</button>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <div class="product-img">
+            <span class="product-img-icon" role="img" aria-label="Óleo de motor"><img width="200" height="150" src="./img/oleo.png" alt="Óleo de motor"/></span>
+            <span class="product-badge">Kit</span>
+          </div>
+          <div class="product-info">
+            <p class="product-cat">Lubrificação</p>
+            <h3 class="product-name">Óleo 10W30 Semi-Sintético</h3>
+            <p class="product-compat">4T Universal – caixa 12 un.</p>
+            <div class="product-price-row">
+              <span class="product-price">R$ 264,00</span>
+              <span class="product-price-old">R$ 312,00</span>
+            </div>
+            <p class="product-stars" aria-label="4.8 estrelas">★★★★★ <span style="color:#555">(308)</span></p>
+            <button class="btn-add" type="button">Solicitar pedido</button>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════
+     DEPOIMENTOS DE CLIENTES
+     Edite aqui: texto, nome, cidade e iniciais de cada depoimento
+     Para adicionar: copie um bloco <article class="review-card">
+     ══════════════════════════════════════════ -->
+<!-- DEPOIMENTOS -->
+  <section id="depoimentos" class="section" aria-labelledby="dep-heading">
+    <div class="container">
+      <p class="section-label">Depoimentos</p>
+      <h2 class="section-title" id="dep-heading">O que nossos clientes dizem</h2>
+      <p class="section-subtitle">Avaliações de mecânicos, lojistas e motociclistas do Nordeste e Brasil.</p>
+      <div class="reviews-grid">
+
+        <article class="review-card">
+          <p class="review-stars">★★★★★</p>
+          <span class="review-verified">Verificado</span>
+          <p class="review-text">Trabalho há 11 anos como mecânico e a Moto Nordeste é meu fornecedor principal. Peças originais, preço justo e entrega sempre no prazo.</p>
+          <div class="review-author">
+            <div class="review-avatar">RC</div>
+            <div class="review-author-info">
+              <strong>Ricardo Cavalcante</strong>
+              <small>Mecânico – Salvador, BA</small>
+            </div>
+          </div>
+        </article>
+
+        <article class="review-card">
+          <p class="review-stars">★★★★★</p>
+          <span class="review-verified">Verificado</span>
+          <p class="review-text">Compro em grande volume para minha loja. O atendimento comercial é excelente — sempre me avisam sobre promoções e novidades do catálogo.</p>
+          <div class="review-author">
+            <div class="review-avatar" style="background:#128C7E">FS</div>
+            <div class="review-author-info">
+              <strong>Fernanda Souza</strong>
+              <small>Lojista – Feira de Santana, BA</small>
+            </div>
+          </div>
+        </article>
+
+        <article class="review-card">
+          <p class="review-stars">★★★★★</p>
+          <span class="review-verified">Verificado</span>
+          <p class="review-text">Primeiro pedido e chegou em menos de 48h em Recife. Kit relação de qualidade excelente. Com certeza vou continuar comprando.</p>
+          <div class="review-author">
+            <div class="review-avatar" style="background:#1877F2">MA</div>
+            <div class="review-author-info">
+              <strong>Marcos Albuquerque</strong>
+              <small>Motociclista – Recife, PE</small>
+            </div>
+          </div>
+        </article>
+
+        <article class="review-card">
+          <p class="review-stars">★★★★★</p>
+          <span class="review-verified">Verificado</span>
+          <p class="review-text">Precisei de uma peça difícil para minha Honda CBX e eles encontraram em dois dias. Atendimento nota 10, equipe super prestativa.</p>
+          <div class="review-author">
+            <div class="review-avatar" style="background:#CC0000">JN</div>
+            <div class="review-author-info">
+              <strong>Juliana Nunes</strong>
+              <small>Motociclista – Fortaleza, CE</small>
+            </div>
+          </div>
+        </article>
+
+        <article class="review-card">
+          <p class="review-stars">★★★★★</p>
+          <span class="review-verified">Verificado</span>
+          <p class="review-text">Melhor distribuidora do Nordeste. Preços competitivos, nota fiscal sempre certa e suporte técnico que realmente entende de moto.</p>
+          <div class="review-author">
+            <div class="review-avatar" style="background:#4E8A0A">PL</div>
+            <div class="review-author-info">
+              <strong>Paulo Lima</strong>
+              <small>Mecânico – Vitória da Conquista, BA</small>
+            </div>
+          </div>
+        </article>
+
+        <article class="review-card">
+          <p class="review-stars">★★★★★</p>
+          <span class="review-verified">Verificado</span>
+          <p class="review-text">Revendo no interior da Bahia há 5 anos com a Moto Nordeste. Crédito facilitado e atendimento personalizado no WhatsApp. Parceiros de verdade!</p>
+          <div class="review-author">
+            <div class="review-avatar" style="background:#833ab4">TC</div>
+            <div class="review-author-info">
+              <strong>Talita Costa</strong>
+              <small>Revendedora – Juazeiro, BA</small>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════
+     REDES SOCIAIS
+     Edite aqui: links e nomes de usuário de cada rede
+     ══════════════════════════════════════════ -->
+<!-- REDES SOCIAIS -->
+  <section id="redes-sociais" aria-labelledby="social-heading">
+    <div class="section">
+      <div class="container">
+        <p class="section-label">Redes Sociais</p>
+        <h2 class="section-title" id="social-heading">Siga a Moto Nordeste BA</h2>
+        <p class="section-subtitle">Promoções exclusivas, dicas técnicas e novidades direto no seu feed.</p>
+        <div class="social-grid">
+          <a href="https://instagram.com/motonordesteba" class="social-card instagram" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+            <div class="social-icon" aria-hidden="true"><svg width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="20" height="15" rx="3"/><circle cx="12" cy="13" r="4"/><path d="M8 6 L9.5 3 H14.5 L16 6"/><circle cx="18" cy="9" r="1" fill="white" stroke="none"/></svg></div>
+            <strong>Instagram</strong>
+            <span>@motonordesteba</span>
+          </a>
+          <a href="https://wa.me/5575999990930" class="social-card whatsapp" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+            <div class="social-icon" aria-hidden="true"><svg width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></div>
+            <strong>WhatsApp</strong>
+            <span>(75) 9 9999-0930<br/>Atendimento direto</span>
+          </a>
+          <a href="https://youtube.com" class="social-card youtube" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+            <div class="social-icon" aria-hidden="true"><svg width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="3"/><polygon points="10,8 16,12 10,16" fill="white" stroke="none"/></svg></div>
+            <strong>YouTube</strong>
+            <span>MotoNordeste<br/>Vídeos e tutoriais</span>
+          </a>
+          <a href="https://facebook.com" class="social-card facebook" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+            <div class="social-icon" aria-hidden="true"><svg width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></div>
+            <strong>Facebook</strong>
+            <span>MotoNordeste<br/>Siga nossa página</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════
+     ATENDIMENTO E SAC
+     Edite aqui: telefones, e-mails, horários e endereço
+     Para adicionar canal: copie um bloco <div class="atend-card">
+     ══════════════════════════════════════════ -->
+<!-- ATENDIMENTO / SAC -->
+  <section id="atendimento" class="section section-alt" aria-labelledby="atend-heading">
+    <div class="container">
+      <p class="section-label">SAC e Atendimento</p>
+      <h2 class="section-title" id="atend-heading">Como podemos ajudar?</h2>
+      <p class="section-subtitle">Canais para pedidos, suporte técnico, trocas e cadastro de revendedor.</p>
+      <div class="atendimento-grid">
+
+        <div class="atend-card">
+          <div class="atend-icon" aria-hidden="true"><svg width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></div>
+          <h3>WhatsApp</h3>
+          <p>Atendimento rápido para pedidos, cotações e dúvidas técnicas. Respondemos em minutos.</p>
+          <p class="atend-detail">(75) 9 9999-0930</p>
+          <p class="atend-hours">Seg–Sex: 08h–18h · Sáb: 08h–13h</p>
+          <a href="https://wa.me/5575999990930" class="atend-btn" target="_blank" rel="noopener noreferrer">Abrir conversa</a>
+        </div>
+
+        <div class="atend-card">
+          <div class="atend-icon" aria-hidden="true"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#7ED321" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.07 11 19.79 19.79 0 0 1 1 2.18 2 2 0 0 1 2.96.04h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.09 7.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
+          <h3>Telefone</h3>
+          <p>Central de vendas e suporte ao cliente. Para pedidos corporativos e negociações maiores.</p>
+          <p class="atend-detail">(75) 99999-0930</p>
+          <p class="atend-hours">Seg–Sex: 08h–18h · Sáb: 08h–12h</p>
+          <a href="tel:+5575999990930" class="atend-btn">Ligar agora</a>
+        </div>
+
+        <div class="atend-card">
+          <div class="atend-icon" aria-hidden="true"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-2px;margin-right:4px"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>️</div>
+          <h3>E-mail</h3>
+          <p>Pedidos formais, notas fiscais, documentos e solicitações de cadastro de revendedor.</p>
+          <p class="atend-detail">contato@motonordesteba.com.br</p>
+          <p class="atend-hours">Resposta em até 24h úteis</p>
+          <a href="mailto:contato@motonordesteba.com.br" class="atend-btn">Enviar e-mail</a>
+        </div>
+
+        <div class="atend-card">
+          <div class="atend-icon" aria-hidden="true"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"/><path d="M3 21v-5h5"/></svg></div>
+          <h3>Trocas e Devoluções</h3>
+          <p>Produto com defeito ou entregue errado? Abrimos sua solicitação em até 30 dias da compra.</p>
+          <p class="atend-detail">sac@motonordesteba.com.br</p>
+          <p class="atend-hours">Seg–Sex: 08h–18h</p>
+          <a href="mailto:sac@motonordesteba.com.br" class="atend-btn secondary">Abrir solicitação</a>
+        </div>
+
+        <div class="atend-card">
+          <div class="atend-icon" aria-hidden="true"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#7ED321" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+          <h3>Loja Física</h3>
+          <p>Venha conhecer nossa distribuidora na Bahia. Atendemos revendedores e mecânicos com hora marcada.</p>
+          <p class="atend-detail">Avenida Almerindo Rehem, 730, Euclides da Cunha - Bahia – Brasil</p>
+          <p class="atend-hours">Seg–Sex: 08h–18h</p>
+          <a href="https://maps.app.goo.gl/VrLKyCMsVEHJ1TBx6" class="atend-btn" target="_blank" rel="noopener noreferrer">Ver no mapa</a>
+        </div>
+
+        <div class="atend-card">
+          <div class="atend-icon" aria-hidden="true"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#7ED321" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="18" rx="2"/><path d="M8 3v18M16 3v18M2 9h20M2 15h20"/></svg></div>
+          <h3>Seja Revendedor</h3>
+          <p>Revenda nossas peças com preços de distribuidor, crédito e suporte técnico especializado.</p>
+          <p class="atend-detail">revendedor@motonordesteba.com.br</p>
+          <p class="atend-hours">Análise em até 48h úteis</p>
+          <a href="mailto:revendedor@motonordesteba.com.br" class="atend-btn secondary">Quero ser revendedor</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ══════════════════════════════════════════
+     RODAPÉ (FOOTER)
+     Edite aqui: descrição da empresa, links das colunas, copyright
+     ══════════════════════════════════════════ -->
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <a href="#" class="logo" aria-label="Moto Nordeste BA">
+        <img class="logo-img" src="./img/logo.png" alt="Moto Nordeste BA logo" style="width:42px;height:42px;"/>
+        <div class="logo-text">
+          <span class="logo-name" style="font-size:18px;">Moto<span>Nordeste</span></span>
+          <span class="logo-sub">Distribuidora de Peças</span>
+        </div>
+      </a>
+      <p>Distribuidora de moto peças com anos de atuação no Nordeste. Qualidade, procedência e atendimento que fazem a diferença.</p>
+      <nav class="footer-social-row" aria-label="Redes sociais">
+        <a href="https://instagram.com/motonordesteba" class="footer-social-btn" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="20" height="15" rx="3"/><circle cx="12" cy="13" r="4"/><path d="M8 6 L9.5 3 H14.5 L16 6"/><circle cx="18" cy="9" r="1" fill="white" stroke="none"/></svg></a>
+        <a href="https://wa.me/55999990930" class="footer-social-btn" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><svg width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></a>
+        <a href="https://youtube.com" class="footer-social-btn" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><svg width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="3"/><polygon points="10,8 16,12 10,16" fill="white" stroke="none"/></svg></a>
+        <a href="https://facebook.com" class="footer-social-btn" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><svg width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+      </nav>
+    </div>
+
+    <nav aria-label="Produtos">
+      <h4>Produtos</h4>
+      <ul>
+        <li><a href="#">Transmissão</a></li>
+        <li><a href="#">Freios e suspensão</a></li>
+        <li><a href="#">Motor e filtros</a></li>
+        <li><a href="#">Elétrica e ignição</a></li>
+        <li><a href="#">Acessórios</a></li>
+        <li><a href="#">Lubrificantes</a></li>
+        <li><a href="#">Catálogo completo</a></li>
+      </ul>
+    </nav>
+
+    <nav aria-label="Empresa">
+      <h4>Empresa</h4>
+      <ul>
+        <li><a href="#">Sobre nós</a></li>
+        <li><a href="#">Seja revendedor</a></li>
+        <li><a href="#">Trabalhe conosco</a></li>
+        <li><a href="#">Blog técnico</a></li>
+        <li><a href="#">Nossas marcas</a></li>
+      </ul>
+    </nav>
+
+    <nav aria-label="Ajuda">
+      <h4>Ajuda</h4>
+      <ul>
+        <li><a href="#">Como comprar</a></li>
+        <li><a href="#">Rastrear pedido</a></li>
+        <li><a href="#">Política de trocas</a></li>
+        <li><a href="#">Formas de pagamento</a></li>
+        <li><a href="#">Prazo de entrega</a></li>
+        <li><a href="#">Perguntas frequentes</a></li>
+        <li><a href="#atendimento">Fale conosco</a></li>
+      </ul>
+    </nav>
+  </div>
+
+  <div class="footer-bottom">
+    <span>© 2026 MotoNordeste - Distribuidora de Peças · Bahia, Brasil</span>
+    <nav class="footer-bottom-links" aria-label="Links legais">
+      <a href="#">Privacidade</a>
+      <a href="#">Termos de uso</a>
+      <a href="#">Cookies</a>
+    </nav>
+  </div>
+</footer>
+<script src="script.js"></script>
+</body>
+</html>
